@@ -71,7 +71,8 @@ export default class OTSession extends Component {
   }
 
   render() {
-    return <div>{this.props.children}</div>;
+    const { className, style } = this.props;
+    return <div className={className} style={style}>{this.props.children}</div>;
   }
 }
 
@@ -80,6 +81,7 @@ OTSession.propTypes = {
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element),
   ]).isRequired,
+  className: PropTypes.string,
   apiKey: PropTypes.string.isRequired,
   sessionId: PropTypes.string.isRequired,
   token: PropTypes.string.isRequired,
@@ -87,13 +89,16 @@ OTSession.propTypes = {
   onConnect: PropTypes.func,
   onError: PropTypes.func,
   options: PropTypes.object,
+  style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 OTSession.defaultProps = {
+  className: '',
   eventHandlers: null,
   onConnect: null,
   onError: null,
   options: {},
+  style: {}
 };
 
 OTSession.childContextTypes = {

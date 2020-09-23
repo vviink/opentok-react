@@ -13,7 +13,8 @@ export default class OTSubscriberContext extends Component {
   }
 
   render() {
-    return <div>{ this.props.children }</div>;
+    const { children, className, style } = this.props;
+    return <div className={className} style={style}>{ children }</div>;
   }
 
 }
